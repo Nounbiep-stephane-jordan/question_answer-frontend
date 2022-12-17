@@ -1,0 +1,226 @@
+.form-container * {
+  padding: 0;
+  margin: 0;
+  transition: all 0.5s;
+}
+
+.form-container {
+  background-color: #f5f6fa;
+  padding: 37px;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.form-container {
+}
+
+.form-container .left {
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px auto;
+  width: 500px;
+  position: relative;
+}
+
+.form-container .left h1 {
+  line-height: 40px;
+  margin-bottom: 25px;
+  color: #00325e;
+  font-size: 40px;
+}
+
+.form-container .left p {
+  font-weight: 400;
+}
+
+.right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-h1,
+.form-container form {
+  background-color: white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px auto;
+  width: 450px;
+  height: fit-content;
+}
+
+.right-h1 h1 {
+  color: #00325e;
+  border-bottom: 4px solid #ffe600;
+  width: fit-content;
+  font-size: 20px;
+}
+
+.form-container form {
+  flex-direction: column;
+}
+
+.form-container form input {
+  height: 40px;
+  width: -webkit-fill-available;
+  margin: 5px 0;
+  background-color: white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  border: none;
+  transition: all 0.5s;
+  color: #707070;
+  padding: 0 0 0 20px;
+}
+
+.form-container button {
+  height: 40px;
+  width: -webkit-fill-available;
+  margin: 20px 0;
+  border: none;
+  transition: all 0.5s;
+  border-radius: 50px;
+  font-weight: bold;
+  color: white;
+  background-color: #00bbff;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #00bbffe0;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.form-container .outlined {
+  background-color: white;
+  border: 2px solid #00bbff;
+  color: #00bbff;
+}
+
+.form-container .outlined:hover {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  color: white;
+  background-color: #00bbff;
+}
+
+.form-container span {
+  color: rgba(62, 114, 255, 0.56);
+  text-transform: capitalize;
+  align-self: flex-start;
+  margin: 10px 0;
+}
+
+.form-container .divider {
+  height: 3px;
+  background-color: #ffe600;
+  border: none;
+  width: 100%;
+}
+
+.form-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url("../../assets/overlay.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.err{
+    text-align: center;
+    background-color: #f5f6fa;
+    transition: all 0.5s;
+    font-weight: bold;
+    color: #ED6468;
+    background-color: #ffd3d3;
+    padding: 20px;
+    width: 500px;
+    margin:20px auto;
+}
+
+@media screen and (max-width: 800px) {
+
+  .err {
+        width: 400px;
+    }
+
+  .form-container {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
+
+  .form-container .left h1 {
+    line-height: 30px;
+    color: #00325e;
+    font-size: 30px;
+  }
+
+  .right-h1,
+  .form-container form {
+    width: 400px;
+  }
+
+  .form-container .left {
+    width: 400px;
+    justify-content: flex-start;
+    color: black;
+    margin-left: 21px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .form-container {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
+
+  .form-container .left h1 {
+    line-height: 30px;
+    color: #00325e;
+    font-size: 20px;
+  }
+
+  .right-h1,
+  .form-container form {
+    width: 220px;
+  }
+
+  .form-container .left {
+    width: 220px;
+    justify-content: flex-start;
+    padding-left: 0px;
+    margin: 0;
+  }
+
+  .err{
+    width: 220px;
+  }
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    margin: 50px auto;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
