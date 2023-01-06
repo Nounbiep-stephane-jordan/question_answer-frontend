@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./style.css";
-import overlay from "../../assets/overlay.png";
+
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigation = useNavigate();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -11,7 +13,10 @@ const Register = () => {
     profileImage: "",
   });
   const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState("");
+  const [err, setErr] = useState({
+    err: "",
+    errType: "",
+  });
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -29,8 +34,9 @@ const Register = () => {
         setLoading(false);
         console.log(res.data);
         if (res.data.userErr) {
-          setErr(res.data.userErr);
+          return setErr({ err: res.data.userErr, errType: res.data.errType });
         }
+        navigation("/post");
       })
       .catch((err) => {
         setLoading(false);
@@ -39,19 +45,8 @@ const Register = () => {
       });
   };
 
-  setTimeout(() => {
-    setErr("");
-  }, 2000);
-
   return (
     <>
-      {err ? (
-        <div className="err">
-          <p>{err}</p>
-        </div>
-      ) : (
-        ""
-      )}
       <div className="form-container">
         <div className="left">
           <div className="form-overlay"></div>
@@ -72,14 +67,29 @@ const Register = () => {
           >
             <span>Name</span>
             <input type="text" name="name" onChange={handleChange} />
+            {err.errType === "all" ? (
+              <span className="error">{err.err}</span>
+            ) : (
+              ""
+            )}
+
             <span>Email</span>
-
             <input type="email" name="email" onChange={handleChange} />
+            {err.errType === "all" ? (
+              <span className="error">{err.err}</span>
+            ) : (
+              ""
+            )}
+
             <span>Password</span>
-
             <input type="password" name="password" onChange={handleChange} />
-            <span>profileImage</span>
+            {err.errType === "password" || err.errType === "all" ? (
+              <span className="error">{err.err}</span>
+            ) : (
+              ""
+            )}
 
+            <span>profileImage</span>
             <input type="text" name="profileImage" onChange={handleChange} />
             {loading ? (
               <div className="loader"></div>
@@ -88,7 +98,7 @@ const Register = () => {
             )}
             <div className="divider"></div>
             <button className="outlined">Register with Google</button>
-            <span>login instead ?</span>
+            <Link to="/">Login instead ?</Link>
           </form>
         </div>
       </div>

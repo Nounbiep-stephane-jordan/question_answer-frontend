@@ -1,15 +1,20 @@
-import React, { useState } from "react";
-import "./style.css";
-import overlay from "../../assets/overlay.png";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 
-const Login = () => {
+import "./style.css";
+import { Link, useNavigate } from "react-router-dom";
+
+const Login = ({ setUser }) => {
+  const navigation = useNavigate();
   const [data, setData] = useState({
     name: "",
     password: "",
   });
   const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState("");
+  const [err, setErr] = useState({
+    err: "",
+    errType: "",
+  });
   const handleChange = (e) => {
     e.preventDefault();
     setData({ ...data, [e.target.name]: e.target.value });
@@ -17,38 +22,27 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
     setLoading(true);
     const url = "http://localhost/question and anwer/auth/login.php";
     axios
       .post(url, data)
       .then((res) => {
         setLoading(false);
-        console.log(res);
+        console.log(res.data);
         if (res.data.userErr) {
-          setErr(res.data.userErr);
+          return setErr({ err: res.data.userErr, errType: res.data.errType });
         }
+        setUser(res.data);
+        return navigation("/post");
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
-        setErr(err);
+        setErr({ err: err.message, errType: "" });
       });
   };
 
-  setTimeout(() => {
-    setErr("");
-  }, 2000);
-
   return (
     <>
-      {err ? (
-        <div className="err">
-          <p>{err}</p>
-        </div>
-      ) : (
-        ""
-      )}
       <div className="form-container">
         <div className="left">
           <div className="form-overlay"></div>
@@ -69,10 +63,19 @@ const Login = () => {
           >
             <span>Name</span>
             <input type="text" name="name" onChange={handleChange} />
+            {err.errType === "all" ? (
+              <span className="error">{err.err}</span>
+            ) : (
+              ""
+            )}
 
             <span>Password</span>
-
             <input type="password" name="password" onChange={handleChange} />
+            {err.errType === "password" || err.errType === "all" ? (
+              <span className="error">{err.err}</span>
+            ) : (
+              ""
+            )}
 
             {loading ? (
               <div className="loader"></div>
@@ -81,7 +84,9 @@ const Login = () => {
             )}
             <div className="divider"></div>
             <button className="outlined">Register with Google</button>
-            <span>register instead ?</span>
+            <span>
+              <Link to="/Register">Register instead ?</Link>
+            </span>
           </form>
         </div>
       </div>

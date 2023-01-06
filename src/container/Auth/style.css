@@ -107,11 +107,16 @@
   background-color: #00bbff;
 }
 
-.form-container span {
+.form-container span ,.form-container a {
   color: rgba(62, 114, 255, 0.56);
   text-transform: capitalize;
   align-self: flex-start;
   margin: 10px 0;
+  cursor: pointer;
+}
+
+.form-container a{
+  text-decoration: none;
 }
 
 .form-container .divider {
@@ -138,10 +143,16 @@
     transition: all 0.5s;
     font-weight: bold;
     color: #ED6468;
-    background-color: #ffd3d3;
     padding: 20px;
     width: 500px;
     margin:20px auto;
+}
+
+.error{
+  transition: all 0.5s;
+  font-weight: bold;
+  color: #ED6468 !important;
+  font-size: 10px;
 }
 
 @media screen and (max-width: 800px) {
@@ -188,11 +199,11 @@
 
   .right-h1,
   .form-container form {
-    width: 220px;
+    width: 300px;
   }
 
   .form-container .left {
-    width: 220px;
+    width: 300px;
     justify-content: flex-start;
     padding-left: 0px;
     margin: 0;

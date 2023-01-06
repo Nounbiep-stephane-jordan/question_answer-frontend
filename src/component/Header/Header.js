@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import closeIcon from "../../assets/close.png";
 import searchIcon from "../../assets/search.png";
@@ -9,13 +10,14 @@ const Header = () => {
   return (
     <header>
       <nav className="large-menu">
-        <a>Home</a>
+        <Link to="/Home">Home</Link>
         <div className="input-box">
           <img src={searchIcon} alt="search icon" />
           <input type="text" placeholder="Search" />
         </div>
-        <a>Contact</a>
-        <a>About us</a>
+        <Link to="/post">Question&Answer</Link>
+        <Link to="/">Contact</Link>
+        <Link to="/Aboutus">About us</Link>
       </nav>
       <nav className="small-menu">
         <img
@@ -34,9 +36,12 @@ const Header = () => {
                 src={closeIcon}
                 alt="small size menu close icon"
               />
-              <a>Home</a>
-              <a>Contact</a>
-              <a>About us</a>
+              <Link to="/Home" activeclassname="active">
+                Home
+              </Link>
+              <Link to="/post">Question&Answer</Link>
+              <Link to="/">Contact</Link>
+              <Link to="/Aboutus">About us</Link>
             </div>
           </>
         ) : (

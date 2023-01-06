@@ -50,6 +50,10 @@ nav input {
     display: none;
 }
 
+
+nav .active{
+    color: #FFE600;
+}
 @media screen and (max-width:800px) {
     nav input{
         width: 230px;
@@ -58,7 +62,7 @@ nav input {
    
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:570px) {
     nav input{
         width: 150px;
     }
@@ -80,7 +84,7 @@ nav input {
         justify-content: space-evenly;
         background-color: white;
         transition: all 0.5s;
-        z-index: 99;
+        z-index: 5;
         border: none;
         padding: 20px;
         position: absolute;

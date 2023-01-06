@@ -61,6 +61,11 @@
     justify-content: space-between;
 }
 
+.post{
+    margin-bottom: 80px;
+    margin-top: 20px;
+}
+
 .mainContent{
     max-width: 650px;
     margin: auto;
@@ -70,15 +75,16 @@
     align-items: center;
 }
 
-.mainContent h1 {
-    color: #00325e;
-}
-
-.mainContent h2{
+.mainContent h1,.mainContent h2{
     color: #00325e;
     align-self: flex-start;
     text-transform: capitalize;
     margin-left: 24px;
+    margin-top: 0;
+}
+
+.mainContent .h2{
+    margin-top: 90px;
 }
  
 .chat-box{
@@ -144,7 +150,7 @@
     }
     
     
-    .right-box .img span:nth-child(3){
+    .right-box .img span:nth-child(3),.time{
         color: var(--GrayishBlue-color);
         font-weight: 500;
     }
@@ -191,7 +197,7 @@
     
     
 .chat-box-reply{
-    width: 600px;
+    width: 500px;
 }
 
 .chat-box-reply form button,.btn-update{
@@ -249,14 +255,17 @@ flex-wrap: nowrap;
 .text-box{
     width: 100%;
     border-radius: 10px;
-    padding: 15px 10rem 4rem 24px; 
+    padding: 10px 16px 0 10px; 
+    height: 100px;
     border: 1px solid lightgray;
     margin: 0 20px;
 }
 
 .replies {
-    max-width: 600px;
-    margin-left: auto;
+    /* max-width: 600px;
+    margin-left: auto; */
+    width: 600px;
+    margin-left: 150px;
     border-left: 2px solid var(--Lightgray-color);
 }
 
@@ -267,3 +276,86 @@ flex-wrap: nowrap;
     font-weight: bold;
     margin-right: 10px;
  }
+
+ .currentUser{
+    background-color: #00325e;
+    color: white !important;
+    padding: 8px;
+    border-radius: 8px;
+ }
+
+ .userBox .reply{
+    margin-left: 50px;
+ }
+
+ .userBox .reply span{
+    font-size: 15px;
+    margin: 0 20px;
+ }
+
+ .userBox .reply .del{
+    color: #ED6468;
+ }
+
+
+
+
+ @media screen and (max-width:800px) {
+    .replies{
+        width: auto;
+        margin-left: 10px;
+    }
+
+    /* .left-box{
+        display: none;
+    } */
+
+    .chat-box p, .chat-box-reply p {
+        font-size: 14px;
+        width: auto;
+    }
+
+    .userBox{
+        font-size: 15px;
+    }
+
+    .time{
+        display: none;
+    }
+
+    .currentUser{
+        margin-left: 10px;
+    }
+
+    
+    .right-box .img-box-right {
+    width: 17%;
+    }
+
+    .question{
+        width: fit-content;
+    }
+
+    .question form{
+        flex-wrap: wrap;
+    }
+
+    .question .text-box{
+      width: auto;
+    }
+
+    .question button{
+        margin: 10px 0;
+    }
+
+    .left-box{
+        width: 24px;
+    }
+
+    .answer .left-box{
+        display: none;
+    }
+
+ }
+
+ 
