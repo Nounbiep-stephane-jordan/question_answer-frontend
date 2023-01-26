@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 import avatar from "../../assets/avatar.jpg";
+import { createAvatar } from "@dicebear/core";
+
 import { UserContext } from "../../App";
 
 const Edit = ({ setLoading, answer_id, setShowReply, setErr, answer }) => {
