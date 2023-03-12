@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./style.css";
 
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../App";
 
-const Register = () => {
+const Register = ({ setUser }) => {
   const navigation = useNavigate();
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -36,6 +38,7 @@ const Register = () => {
         if (res.data.userErr) {
           return setErr({ err: res.data.userErr, errType: res.data.errType });
         }
+        setUser(res.data);
         navigation("/post");
       })
       .catch((err) => {

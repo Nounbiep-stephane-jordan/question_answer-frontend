@@ -66,14 +66,16 @@ const ChatBox = ({
                 )}
                 <span className="time">{creation_date}</span>
               </div>
+
               {Users.name === question_author ? (
                 <div className="reply replied c_flex">
                   <span className="del" onClick={deleteQuestion}>
-                    <i className="fa-solid fa-trashcan"></i>Delete
+                    <i className="fa-solid fa-trash"></i>
+                    {/* Delete */}
                   </span>
                   <span onClick={() => setShowEdit(!showedit)}>
                     <i className="fa-solid fa-pencil"></i>
-                    Edit
+                    {/* Edit */}
                   </span>
                 </div>
               ) : (

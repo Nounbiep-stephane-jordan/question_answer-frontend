@@ -63,10 +63,12 @@ const ReplyBox = ({
               {Users.name === answer_author ? (
                 <div className="reply replied c_flex">
                   <span className="del" onClick={deleteAnswer}>
-                    <i className="fa-solid fa-trashcan"></i>Delete
+                    <i className="fa-solid fa-trash"></i>
+                    {/* Delete */}
                   </span>
                   <span onClick={() => setShowEdit(!showedit)}>
-                    <i className="fa-solid fa-pencil"></i>Edit
+                    <i className="fa-solid fa-pencil"></i>
+                    {/* Edit */}
                   </span>
                 </div>
               ) : (

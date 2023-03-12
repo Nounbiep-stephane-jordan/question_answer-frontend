@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
 import "./App.css";
 import Footer from "./component/footer/Footer";
@@ -14,6 +15,15 @@ export const UserContext = createContext("");
 
 function App() {
   const [Users, setUser] = useState({});
+
+  useEffect(() => {
+    axios
+      .get("http://localhost/question and anwer/index.php")
+      .then((response) => {
+        console.log(response, "is the app");
+      });
+  }, []);
+
   return (
     <>
       <UserContext.Provider value={Users}>

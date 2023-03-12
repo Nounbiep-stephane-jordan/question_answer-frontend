@@ -63,7 +63,7 @@ const Login = ({ setUser }) => {
           >
             <span>Name</span>
             <input type="text" name="name" onChange={handleChange} />
-            {err.errType === "all" ? (
+            {err.errType === "all" || err.errType === "name" ? (
               <span className="error">{err.err}</span>
             ) : (
               ""
